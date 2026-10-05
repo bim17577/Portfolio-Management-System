@@ -1,0 +1,716 @@
+   /* Body and overall layout */
+   body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0fbf5; 
+    color: #1a3b1a; 
+    margin: 0;
+    padding-top: 70px; 
+    padding-bottom: 60px; 
+    width: 100vw;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  main {
+    flex: 1; /* main content grows */
+  }
+  
+
+
+
+
+
+  
+  /* Banner container full width and spacing */
+  .banner-container {
+    width: 100%;
+    max-width: none;
+    margin: 25px 0 50px;
+    display: flex;
+    gap: 25px;
+    padding: 0 40px;
+    box-sizing: border-box;
+  }
+  .banner-left {
+    flex: 1.4;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(76, 175, 80, 0.3);
+    max-height: 560px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    background: white;
+  }
+  .banner-left:hover {
+    transform: scale(1.03);
+    box-shadow: 0 18px 40px rgba(76, 175, 80, 0.5);
+  }
+  .banner-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  .banner-right > div {
+    flex: 1;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(76, 175, 80, 0.25);
+    max-height: 270px;
+    background: white;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  .banner-right > div:hover {
+    transform: scale(1.04);
+    box-shadow: 0 14px 35px rgba(76, 175, 80, 0.45);
+  }
+  .banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Hero section */
+  .hero {
+    background: linear-gradient(135deg, #4caf50, #81c784);
+    color: #fff;
+    text-align: center;
+    padding: 100px 40px;  /* optional bigger padding */
+    border-radius: 20px;
+    margin: 30px 40px 50px; /* maintain top/bottom and side spacing */
+    width: auto;          /* allow full width */
+    max-width: none;      /* remove max-width */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  }
+  
+  .hero h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    letter-spacing: 1.5px;
+  }
+  .hero p {
+    font-size: 1.3rem;
+    max-width: 750px;
+    margin: 0 auto;
+  }
+  
+  /* Container & card styling */
+/* Portfolio Section Styling */
+.portfolio-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+  width: 90%;
+  margin: auto;
+  padding-bottom: 60px;
+}
+
+/* Portfolio Card */
+.portfolio-card {
+  background: linear-gradient(145deg, #ffffff, #e6f4ea);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 25px rgba(76, 175, 80, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 35px rgba(76, 175, 80, 0.35);
+}
+
+/* Portfolio Image */
+.portfolio-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid #c8e6c9;
+  transition: transform 0.4s ease;
+}
+
+.portfolio-card:hover .portfolio-image {
+  transform: scale(1.05);
+}
+
+/* Portfolio Summary */
+.portfolio-summary {
+  padding: 22px 25px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Titles & Description */
+.portfolio-title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 12px;
+}
+
+.portfolio-description {
+  color: #4a4a4a;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+/* View Portfolio Button */
+.btn-view-portfolio {
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(90deg, #4caf50, #81c784);
+  border: none;
+  border-radius: 35px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: all 0.3s ease;
+}
+
+.btn-view-portfolio:hover {
+  background: linear-gradient(90deg, #388e3c, #66bb6a);
+  transform: scale(1.05);
+}
+
+/* QR Code */
+.qr-container img {
+  margin-top: 15px;
+  width: 150px;
+  height: 150px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.qr-container img:hover {
+  transform: scale(1.05);
+}
+
+  /* Accordion styles */
+  .accordion-section {
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
+  }
+  
+  .accordion-header {
+    cursor: pointer;
+    font-weight: bold;
+    color: #2980b9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .accordion-content {
+    display: none;
+    margin-top: 10px;
+  }
+  
+  .qr-code {
+    width: 150px;
+    height: 150px;
+  }
+  .explore-wrapper {
+    width: 100%;               /* full width of the page */
+    display: flex;
+    justify-content: center;   /* center horizontally */
+    padding: 40px 20px;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, #e8f5e9, #c8e6c9); /* optional background */
+  }
+  
+  .explore-bar {
+    max-width: 600px;          /* control max width */
+    width: 100%;               /* allow shrinking */
+    background: linear-gradient(90deg, #4caf50, #81c784);
+    color: white;
+    padding: 40px 60px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(76, 175, 80, 0.6);
+    user-select: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .explore-bar h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    letter-spacing: 1.2px;
+  }
+  
+  .explore-btn {
+    background: white;
+    color: #4caf50;
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding: 16px 50px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 7px 18px rgba(76, 175, 80, 0.7);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+  }
+  
+  .explore-btn:hover {
+    background: #388e3c;
+    color: white;
+    box-shadow: 0 10px 25px rgba(56, 142, 60, 0.9);
+  }
+  
+  /* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #4caf50, #81c784);
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+  border-radius: 20px;
+  margin: 30px auto;
+  max-width: 1100px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.btn-create-portfolio {
+  display: inline-block;
+  padding: 15px 35px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(90deg, #2e7d32, #66bb6a);
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-create-portfolio:hover {
+  background: linear-gradient(90deg, #1b5e20, #4caf50);
+  transform: scale(1.05);
+}
+
+
+   /* Body and overall layout */
+   body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0fbf5; 
+    color: #1a3b1a; 
+    margin: 0;
+    padding-top: 70px; 
+    padding-bottom: 60px; 
+    width: 100vw;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  main {
+    flex: 1; /* main content grows */
+  }
+  
+
+
+
+
+
+  
+  /* Banner container full width and spacing */
+  .banner-container {
+    width: 100%;
+    max-width: none;
+    margin: 25px 0 50px;
+    display: flex;
+    gap: 25px;
+    padding: 0 40px;
+    box-sizing: border-box;
+  }
+  .banner-left {
+    flex: 1.4;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(76, 175, 80, 0.3);
+    max-height: 560px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    background: white;
+  }
+  .banner-left:hover {
+    transform: scale(1.03);
+    box-shadow: 0 18px 40px rgba(76, 175, 80, 0.5);
+  }
+  .banner-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  .banner-right > div {
+    flex: 1;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(76, 175, 80, 0.25);
+    max-height: 270px;
+    background: white;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  .banner-right > div:hover {
+    transform: scale(1.04);
+    box-shadow: 0 14px 35px rgba(76, 175, 80, 0.45);
+  }
+  .banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Hero section */
+  .hero {
+    background: linear-gradient(90deg, #a8e6a1, #4caf50); 
+    color: #154215;
+    padding: 70px 30px;
+    text-align: center;
+    border-radius: 18px;
+    margin: 0 40px 50px;
+    box-shadow: 0 14px 40px rgba(76, 175, 80, 0.4);
+    user-select: none;
+  }
+  .hero h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    letter-spacing: 1.5px;
+  }
+  .hero p {
+    font-size: 1.3rem;
+    max-width: 750px;
+    margin: 0 auto;
+  }
+  
+  /* Container & card styling */
+/* Portfolio Section Styling */
+.portfolio-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+  width: 90%;
+  margin: auto;
+  padding-bottom: 60px;
+}
+
+/* Portfolio Card */
+.portfolio-card {
+  background: linear-gradient(145deg, #ffffff, #e6f4ea);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 25px rgba(76, 175, 80, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 35px rgba(76, 175, 80, 0.35);
+}
+
+/* Portfolio Image */
+.portfolio-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid #c8e6c9;
+  transition: transform 0.4s ease;
+}
+
+.portfolio-card:hover .portfolio-image {
+  transform: scale(1.05);
+}
+
+/* Portfolio Summary */
+.portfolio-summary {
+  padding: 22px 25px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Titles & Description */
+.portfolio-title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 12px;
+}
+
+.portfolio-description {
+  color: #4a4a4a;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+/* View Portfolio Button */
+.btn-view-portfolio {
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(90deg, #4caf50, #81c784);
+  border: none;
+  border-radius: 35px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: all 0.3s ease;
+}
+
+.btn-view-portfolio:hover {
+  background: linear-gradient(90deg, #388e3c, #66bb6a);
+  transform: scale(1.05);
+}
+
+/* QR Code */
+.qr-container img {
+  margin-top: 15px;
+  width: 150px;
+  height: 150px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.qr-container img:hover {
+  transform: scale(1.05);
+}
+
+  /* Accordion styles */
+  .accordion-section {
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
+  }
+  
+  .accordion-header {
+    cursor: pointer;
+    font-weight: bold;
+    color: #2980b9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .accordion-content {
+    display: none;
+    margin-top: 10px;
+  }
+  
+  .qr-code {
+    width: 150px;
+    height: 150px;
+  }
+  .explore-wrapper {
+    width: 100%;               /* full width of the page */
+    display: flex;
+    justify-content: center;   /* center horizontally */
+    padding: 40px 20px;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, #e8f5e9, #c8e6c9); /* optional background */
+  }
+  
+  .explore-bar {
+    max-width: 600px;          /* control max width */
+    width: 100%;               /* allow shrinking */
+    background: linear-gradient(90deg, #4caf50, #81c784);
+    color: white;
+    padding: 40px 60px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(76, 175, 80, 0.6);
+    user-select: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .explore-bar h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    letter-spacing: 1.2px;
+  }
+  
+  .explore-btn {
+    background: white;
+    color: #4caf50;
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding: 16px 50px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 7px 18px rgba(76, 175, 80, 0.7);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+  }
+  
+  .explore-btn:hover {
+    background: #388e3c;
+    color: white;
+    box-shadow: 0 10px 25px rgba(56, 142, 60, 0.9);
+  }
+  
+  /* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #4caf50, #81c784);
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+  border-radius: 20px;
+  margin: 30px auto;
+  max-width: 1100px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.btn-create-portfolio {
+  display: inline-block;
+  padding: 15px 35px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(90deg, #2e7d32, #66bb6a);
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-create-portfolio:hover {
+  background: linear-gradient(90deg, #1b5e20, #4caf50);
+  transform: scale(1.05);
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1200px) {
+  .banner-container {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+  .banner-left, .banner-right > div {
+    max-height: none;
+  }
+  .hero, .hero-content, .explore-bar, .portfolio-section {
+    margin: 20px auto;
+    padding: 40px 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 15px 20px;
+  }
+  nav {
+    margin-left: 0;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  nav a {
+    font-size: 0.95rem;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-section {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    width: 95%;
+  }
+
+  .portfolio-info {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .search-box input[type="text"] {
+    width: 80%;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p, .hero-content p {
+    font-size: 1rem;
+  }
+
+  .btn-create-portfolio, .btn-view-portfolio, .explore-btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .banner-left div, .banner-right div div {
+    font-size: 0.9rem;
+    padding: 10px 14px;
+  }
+
+  .banner-left div h2, .banner-right div h3 {
+    font-size: 1.4rem;
+  }
+
+  .explore-bar h2 {
+    font-size: 2rem;
+  }
+
+  .search-box input[type="text"] {
+    width: 90%;
+  }
+}

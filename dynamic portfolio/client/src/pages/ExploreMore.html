@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Explore More - Smart Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FontAwesome (for icons) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Base Layout */
+    body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full viewport height */
+  margin: 0;
+  padding-top: 70px; /* space for fixed header */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0fbf5;
+  color: #1a3b1a;
+}
+
+main {
+  flex: 1; /* main content takes all remaining space */
+}
+  
+
+header {
+  background: #4caf50; 
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+/* Site title */
+header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+/* Navigation - desktop */
+nav {
+  display: flex;
+  margin-left: auto;
+}
+
+nav a {
+  color: white;
+  margin-left: 24px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1rem;
+}
+
+nav a:hover {
+  color: #a8e6a1;
+  text-decoration: underline;
+}
+
+/* Hamburger toggle - hidden on desktop */
+.nav-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-left: auto;
+  transition: transform 0.3s ease;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 992px) {
+  nav {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #2e7d32;
+    flex-direction: column;
+    width: 200px;
+    display: none;
+    padding: 20px;
+    border-radius: 0 0 0 10px;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav a {
+    margin: 12px 0;
+  }
+
+  /* Show toggle and move it to right */
+  .nav-toggle {
+    display: block;
+    margin-left: auto;
+  }
+}
+
+    /* Hero Banner */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f') center/cover no-repeat;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      animation: fadeIn 1.5s ease;
+    }
+    .hero-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    .hero-content a {
+      background: #4caf50;
+      padding: 12px 25px;
+      border-radius: 25px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    .hero-content a:hover {
+      background: #2e7d32;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Explore Section */
+    .explore-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .explore-section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #2e7d32;
+    }
+    .explore-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .explore-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+      padding: 30px 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .explore-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+    }
+    .explore-card i {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #4caf50;
+    }
+    .explore-card h3 { margin: 0; font-size: 1.3rem; color: #222; }
+    .explore-card p { font-size: 0.95rem; color: #555; margin-top: 10px; }
+
+    /* Video Section */
+    .video-section {
+      background: #e8f5e9;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .video-section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #2e7d32;
+    }
+    .video-wrapper {
+      position: relative;
+      max-width: 800px;
+      margin: auto;
+    }
+    .video-wrapper iframe {
+      width: 100%;
+      height: 450px;
+      border-radius: 12px;
+      border: none;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+    .faq-section h2 {
+      font-size: 2rem;
+      color: #2e7d32;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .faq-item {
+      background: #fff;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      padding: 20px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      position: relative;
+    }
+    .faq-item:hover { background: #f1fdf1; transform: translateX(5px); }
+    .faq-question {
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.1rem;
+    }
+    .faq-question i {
+      transition: transform 0.3s;
+    }
+    .faq-item.active .faq-question i {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+      margin-top: 10px;
+      color: #444;
+      opacity: 0;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    
+
+    /* Footer */
+    footer {
+      background-color: #2e7d32;
+      color: #ffffff;
+      padding: 25px 50px;
+    }
+    .footer-container {
+      display: flex; justify-content: space-between; align-items: center;
+      max-width: 1200px; margin: auto; width: 100%;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-left, .footer-right { display: flex; gap: 20px; }
+    .footer-left a, .footer-right a {
+      color: white; text-decoration: none; font-weight: 500;
+      transition: all 0.3s;
+    }
+    .footer-left a:hover, .footer-right a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Smart Portfolio Site</h1>
+    <div class="nav-toggle" id="nav-toggle">☰</div>
+    <nav>
+      <a href="./home.php">Home</a>
+      <a href="./portfolio.php">Portfolio</a>
+      <a href="./ExploreMore.html">Explore</a>
+      <a href="./about.html">About</a>
+      <a href="./contact.html">Contact</a>
+      <a href="../php/login.php"><span>👤</span> Login</a>
+    </nav>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Discover More with Smart Portfolio</h2>
+      <p>Explore powerful features, connect with professionals, and grow your portfolio journey.</p>
+      <a href="#explore">Start Exploring</a>
+    </div>
+  </section>
+
+  <main>
+    <!-- Explore Features -->
+    <section id="explore" class="explore-section">
+      <h2>Explore Smart Portfolio Features</h2>
+      <div class="explore-grid">
+        <div class="explore-card">
+          <i class="fas fa-chart-line"></i>
+          <h3>Portfolio Insights</h3>
+          <p>Get real-time analytics on your projects, growth, and performance trends.</p>
+        </div>
+        <div class="explore-card">
+          <i class="fas fa-network-wired"></i>
+          <h3>Connect & Collaborate</h3>
+          <p>Build networks, collaborate with others, and grow your professional circle.</p>
+        </div>
+        <div class="explore-card">
+          <i class="fas fa-lightbulb"></i>
+          <h3>Learning Hub</h3>
+          <p>Access tutorials, guides, and resources to upgrade your portfolio skills.</p>
+        </div>
+        <div class="explore-card">
+          <i class="fas fa-fire"></i>
+          <h3>Trending Portfolios</h3>
+          <p>Discover the most popular and innovative portfolios in the community.</p>
+        </div>
+        <div class="explore-card">
+          <i class="fas fa-trophy"></i>
+          <h3>Achievements</h3>
+          <p>Highlight your milestones and showcase your career progress.</p>
+        </div>
+        <div class="explore-card">
+          <i class="fas fa-users"></i>
+          <h3>Community</h3>
+          <p>Engage with peers, share feedback, and grow together.</p>
+        </div>
+      </div>
+    </section>
+
+   <!-- Image Banner Section -->
+<section class="video-section" style="padding: 80px 20px; background: linear-gradient(to right, #f9f9f9, #e6f7ff); text-align:center;">
+    <h2 style="font-size:2.5rem; margin-bottom:50px; color:#333; font-weight:700;">Your Portfolio, Elevated</h2>
+  
+    <div class="banner-wrapper" style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; max-width:1200px; margin:auto;">
+  
+      <!-- Banner 1 -->
+      <div class="banner-item" style="flex:1 1 200px; max-width:220px; overflow:hidden; border-radius:15px; box-shadow:0 12px 25px rgba(0,0,0,0.15); transition:transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer;">
+        <img src="/Portfolio-Project/dynamic-portfolio/client/public/uploads/7.webp" alt="Portfolio 1" style="width:100%; display:block;">
+      </div>
+  
+      <!-- Banner 2 -->
+      <div class="banner-item" style="flex:1 1 200px; max-width:220px; overflow:hidden; border-radius:15px; box-shadow:0 12px 25px rgba(0,0,0,0.15); transition:transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer;">
+        <img src="/Portfolio-Project/dynamic-portfolio/client/public/uploads/15.jpg" alt="Portfolio 2" style="width:100%; display:block;">
+      </div>
+  
+      <!-- Banner 3 -->
+      <div class="banner-item" style="flex:1 1 200px; max-width:220px; overflow:hidden; border-radius:15px; box-shadow:0 12px 25px rgba(0,0,0,0.15); transition:transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer;">
+        <img src="/Portfolio-Project/dynamic-portfolio/client/public/uploads/16.jpg" alt="Portfolio 3" style="width:100%; display:block;">
+      </div>
+  
+      <!-- Banner 4 -->
+      <div class="banner-item" style="flex:1 1 200px; max-width:220px; overflow:hidden; border-radius:15px; box-shadow:0 12px 25px rgba(0,0,0,0.15); transition:transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer;">
+        <img src="/Portfolio-Project/dynamic-portfolio/client/public/uploads/17.jpg" alt="Portfolio 4" style="width:100%; display:block;">
+      </div>
+  
+      <!-- Banner 5 -->
+      <div class="banner-item" style="flex:1 1 200px; max-width:220px; overflow:hidden; border-radius:15px; box-shadow:0 12px 25px rgba(0,0,0,0.15); transition:transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer;">
+        <img src="/Portfolio-Project/dynamic-portfolio/client/public/uploads/18.png" alt="Portfolio 5" style="width:100%; display:block;">
+      </div>
+  
+    </div>
+  </section>
+  
+  <!-- Optional Hover Effect -->
+  <style>
+    .banner-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.25);
+    }
+  </style>
+  
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-question"><span>What is Smart Portfolio?</span> <i class="fas fa-plus"></i></div>
+        <div class="faq-answer">Smart Portfolio is a platform designed to help you manage, showcase, and track your professional projects in one place.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>How can I collaborate with others?</span> <i class="fas fa-plus"></i></div>
+        <div class="faq-answer">You can connect with peers, join project teams, and collaborate through integrated tools provided by Smart Portfolio.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>Is there a learning hub for tutorials?</span> <i class="fas fa-plus"></i></div>
+        <div class="faq-answer">Yes! Smart Portfolio includes a Learning Hub with guides, tutorials, and resources to improve your skills.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>Can I track my portfolio analytics?</span> <i class="fas fa-plus"></i></div>
+        <div class="faq-answer">Absolutely! Smart Portfolio provides detailed analytics on views, interactions, and performance trends.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>Is my data secure?</span> <i class="fas fa-plus"></i></div>
+        <div class="faq-answer">Yes. We follow industry-standard security practices to ensure your data remains safe and private.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span>Can I customize my portfolio?</span> <i class="fas fa-plus"></i></div>
+        <div class="faq-answer">Yes! You can choose layouts, color themes, and add personal branding to make your portfolio stand out.</div>
+      </div>
+    </section>
+
+
+
+
+    <section class="blog-insights" style="padding: 80px 20px; background: linear-gradient(to right, #f9f9f9, #e6f7ff);">
+        <div class="container" style="max-width:1200px; margin:auto;">
+    
+            <h2 style="text-align:center; font-size:2.8rem; margin-bottom:60px; color:#333; font-weight:700;">
+                Latest Insights & Tips
+            </h2>
+    
+            <!-- Blog Entry 1 -->
+            <div class="blog-entry" style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:60px; gap:30px;">
+                <div class="blog-media" style="flex:1; min-width:300px; overflow:hidden; border-radius:12px; box-shadow:0 12px 25px rgba(0,0,0,0.15);">
+                    <iframe width="100%" height="350" src="https://www.youtube.com/embed/WgCh-sUgGHI
+                    " title="Boost Your Productivity in 5 Steps" 
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                            style="border-radius:12px;"></iframe>
+                </div>
+                <div class="blog-content" style="flex:1; min-width:300px;">
+                    <h3 style="font-size:2rem; color:#222; margin-bottom:15px;">Boost Your Productivity in 5 Steps</h3>
+                    <p style="font-size:1rem; color:#555; line-height:1.7; margin-bottom:20px;">
+                        Discover practical strategies to manage your time effectively and stay focused. Small adjustments can lead to big results.
+                    </p>
+                    <a href="https://www.lifehack.org/articles/productivity/5-tips-to-boost-your-productivity.html" target="_blank" 
+                       style="display:inline-block; padding:14px 28px; background: linear-gradient(135deg,#ff6b6b,#ff8787); color:#fff; border-radius:10px; text-decoration:none; font-weight:600; box-shadow:0 6px 15px rgba(0,0,0,0.1); transition:all 0.3s ease;">
+                        Read Full Article
+                    </a>
+                </div>
+            </div>
+    
+            <!-- Blog Entry 2 -->
+            <div class="blog-entry" style="display:flex; flex-wrap:wrap; align-items:center; margin-bottom:60px; gap:30px; flex-direction:row-reverse;">
+                <div class="blog-media" style="flex:1; min-width:300px; overflow:hidden; border-radius:12px; box-shadow:0 12px 25px rgba(0,0,0,0.15);">
+                    <iframe width="100%" height="350" src="https://www.youtube.com/embed/PJv9FJe51W4" title="Top UI/UX Design Trends 2025" 
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                            style="border-radius:12px;"></iframe>
+                </div>
+                <div class="blog-content" style="flex:1; min-width:300px;">
+                    <h3 style="font-size:2rem; color:#222; margin-bottom:15px;">Top UI/UX Design Trends 2025</h3>
+                    <p style="font-size:1rem; color:#555; line-height:1.7; margin-bottom:20px;">
+                        Explore the upcoming design trends shaping websites and apps. Stay ahead of the curve with interactive visuals and minimalism.
+                    </p>
+                    <a href="https://uxdesign.cc/ux-trends-2025-innovations-in-web-design-84b9f2d1b123" target="_blank" 
+                       style="display:inline-block; padding:14px 28px; background: linear-gradient(135deg,#ff6b6b,#ff8787); color:#fff; border-radius:10px; text-decoration:none; font-weight:600; box-shadow:0 6px 15px rgba(0,0,0,0.1); transition:all 0.3s ease;">
+                        Read Full Article
+                    </a>
+                </div>
+            </div>
+    
+            <!-- Blog Entry 3 -->
+            <div class="blog-entry" style="display:flex; flex-wrap:wrap; align-items:center; gap:30px;">
+                <div class="blog-media" style="flex:1; min-width:300px; overflow:hidden; border-radius:12px; box-shadow:0 12px 25px rgba(0,0,0,0.15);">
+                    <iframe width="100%" height="350" src="https://www.youtube.com/embed/m9t5F9L8Py0" title="Mastering Time Management" 
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                            style="border-radius:12px;"></iframe>
+                </div>
+                <div class="blog-content" style="flex:1; min-width:300px;">
+                    <h3 style="font-size:2rem; color:#222; margin-bottom:15px;">Mastering Time Management</h3>
+                    <p style="font-size:1rem; color:#555; line-height:1.7; margin-bottom:20px;">
+                        Learn actionable tips to prioritize tasks, reduce procrastination, and achieve more every day. Make your workflow smoother.
+                    </p>
+                    <a href="https://www.mindtools.com/pages/article/newHTE_00.htm" target="_blank" 
+                       style="display:inline-block; padding:14px 28px; background: linear-gradient(135deg,#ff6b6b,#ff8787); color:#fff; border-radius:10px; text-decoration:none; font-weight:600; box-shadow:0 6px 15px rgba(0,0,0,0.1); transition:all 0.3s ease;">
+                        Read Full Article
+                    </a>
+                </div>
+            </div>
+    
+        </div>
+    </section>
+    
+    
+      
+   
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        <span class="quick-title">Quick Links:</span>
+        <a href="home.php">Home</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.php">Portfolio</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-center">
+        &copy; 2025 Smart Portfolio Site. All rights reserved.
+      </div>
+      <div class="footer-right">
+        <a href="https://web.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile Navigation Toggle
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.querySelector('nav');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+
+    // FAQ Toggle
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+
+
+    // Hover zoom effect on media
+  document.querySelectorAll('.blog-media img, .blog-media video').forEach(media => {
+    media.addEventListener('mouseenter', () => {
+      media.style.transform = "scale(1.05)";
+      media.style.transition = "transform 0.4s ease";
+    });
+    media.addEventListener('mouseleave', () => {
+      media.style.transform = "scale(1)";
+    });
+  });
+
+  
+  </script>
+
+</body>
+</html>

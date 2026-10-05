@@ -1,0 +1,26 @@
+{
+  "home": {
+    "title": "Welcome to My Portfolio",
+    "description": "This is the home page of my portfolio where I showcase my work and projects."
+  },
+  "about": {
+    "title": "About Me",
+    "description": "Learn more about my background, skills, and experiences."
+  },
+  "projects": {
+    "title": "My Projects",
+    "description": "Explore the projects I have worked on, including details and technologies used."
+  },
+  "services": {
+    "title": "Services Offered",
+    "description": "Discover the services I provide, including web development and consulting."
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "description": "Feel free to reach out to me through the contact form."
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "description": "A collection of my best work and projects."
+  }
+}

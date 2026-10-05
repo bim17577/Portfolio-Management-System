@@ -1,0 +1,31 @@
+/* Example icon font classes with Unicode symbols */
+.icon-home::before {
+    content: "\2302"; /* Unicode for home icon */
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin-right: 6px;
+  }
+  
+  .icon-user::before {
+    content: "\1F464"; /* Unicode for user icon */
+    font-family: Arial, sans-serif;
+    margin-right: 6px;
+  }
+  
+  .icon-mail::before {
+    content: "\2709"; /* Unicode for envelope/mail icon */
+    font-family: Arial, sans-serif;
+    margin-right: 6px;
+  }
+  
+  /* Or using SVG as background icons */
+  .icon-search {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url('search.svg') no-repeat center center;
+    background-size: contain;
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+  

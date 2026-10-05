@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Us - Smart Portfolio</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full viewport height */
+  margin: 0;
+  padding-top: 70px; /* space for fixed header */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0fbf5;
+  color: #1a3b1a;
+}
+
+main {
+  flex: 1; /* main content takes all remaining space */
+}
+     /* Header Styles */
+header {
+  background: #4caf50; 
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+/* Site title */
+header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+/* Navigation - desktop */
+nav {
+  display: flex;
+  margin-left: auto;
+}
+
+nav a {
+  color: white;
+  margin-left: 24px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1rem;
+}
+
+nav a:hover {
+  color: #a8e6a1;
+  text-decoration: underline;
+}
+
+/* Hamburger toggle - hidden on desktop */
+.nav-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-left: auto;
+  transition: transform 0.3s ease;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 992px) {
+  nav {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #2e7d32;
+    flex-direction: column;
+    width: 200px;
+    display: none;
+    padding: 20px;
+    border-radius: 0 0 0 10px;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav a {
+    margin: 12px 0;
+  }
+
+  /* Show toggle and move it to right */
+  .nav-toggle {
+    display: block;
+    margin-left: auto;
+  }
+}
+
+    /* Footer Styles */
+    footer {
+  background-color: #2e7d32; /* dark green base */
+  color: #ffffff;
+  padding: 25px 50px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  width: 100%;
+}
+
+.footer-left,
+.footer-right {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-left a,
+.footer-right a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Elegant underline hover effect for links */
+.footer-left a::after,
+.footer-right a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: #81c784; /* bright green */
+  transition: 0.3s;
+}
+
+.footer-left a:hover::after,
+.footer-right a:hover::after {
+  width: 100%;
+}
+
+.footer-center {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #c8e6c9; /* lighter green for subtle contrast */
+}
+
+/* Social icons styling */
+.footer-right a i {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-right a:hover i {
+  color: #81c784;
+  transform: scale(1.3);
+}
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    justify-content: center;
+  }
+}
+
+    /* Hero Section */
+    .hero {
+      background: url('/Portfolio-Project/dynamic-portfolio/client/public/uploads/image6.webp') center/cover no-repeat;
+      height: 300px;
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+      margin: 20px;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+    .hero h2 { font-size: 3rem; text-align: center; }
+
+    /* Sections */
+    .section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px 30px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 12px 25px rgba(76, 175, 80, 0.15);
+      transition: transform 0.3s ease;
+    }
+    .section:hover { transform: scale(1.02); }
+    .section h3 { color: #2e7d32; margin-bottom: 15px; }
+    .section p { font-size: 1.1rem; line-height: 1.7; }
+
+    /* Team Section */
+    .team-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+    }
+    .team-card {
+      background: #f0fff4;
+      border-radius: 15px;
+      padding: 20px;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .team-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(76,175,80,0.25);
+    }
+    .team-card i { font-size: 3rem; color: #4caf50; margin-bottom: 10px; }
+    .team-card h4 { margin: 10px 0 5px 0; color: #2e7d32; }
+    .team-card p { font-size: 0.95rem; color: #555; }
+
+    @media (max-width: 768px) {
+      .team-container { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Smart Portfolio Site</h1>
+  
+    <!-- Hamburger toggle button -->
+    <div class="nav-toggle" id="nav-toggle">☰</div>
+  
+    <nav>
+      <a href="./home.php">Home</a>
+      <a href="./portfolio.php">Portfolio</a>
+      <a href="./ExploreMore.html">Explore</a>
+      <a href="./about.html">About</a>
+      <a href="./contact.html">Contact</a>
+      <a href="../php/login.php"><span>👤</span> Login</a>
+    </nav>
+  </header>
+  
+
+<main>
+  <div class="hero">
+    <h2>Showcasing Talent Creatively</h2>
+  </div>
+
+  <div class="section">
+    <h3>Our Mission</h3>
+    <p>We aim to provide a platform that empowers individuals to present their skills, projects, and achievements in a visually stunning and professional manner. Smart Portfolio bridges the gap between talented creators and potential clients, offering a seamless experience for showcasing creativity and expertise.</p>
+  </div>
+
+  <div class="section">
+    <h3>Our Story</h3>
+    <p>What started as a small project to help students and professionals display their work has grown into a dynamic platform used globally. With a focus on user-friendly design and aesthetic appeal, Smart Portfolio ensures that every portfolio stands out, helping creators make a memorable impact.</p>
+  </div>
+
+  <div class="section">
+    <h3>Meet Our Team</h3>
+    <div class="team-container">
+      <div class="team-card">
+        <i class="fas fa-user-astronaut"></i>
+        <h4>Bimasha Jayathunga</h4>
+        <p>Founder & Lead Developer – Passionate about crafting user-friendly interfaces and innovative portfolio solutions.</p>
+      </div>
+      <div class="team-card">
+        <i class="fas fa-pencil-ruler"></i>
+        <h4>Sarah Williams</h4>
+        <p>UI/UX Designer – Designs intuitive and beautiful experiences that make portfolios engaging and memorable.</p>
+      </div>
+      <div class="team-card">
+        <i class="fas fa-server"></i>
+        <h4>John Smith</h4>
+        <p>Backend Developer – Ensures smooth functionality, fast loading times, and reliable server-side performance.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-container">
+    <!-- Left: Quick Links -->
+    <div class="footer-left">
+      <span class="quick-title">Quick Links:</span>
+      <a href="home.php">Home</a>
+      <a href="about.html">About</a>
+      <a href="portfolio.php">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Center: Copyright -->
+    <div class="footer-center">
+      &copy; 2025 Smart Portfolio Site. All rights reserved.
+    </div>
+
+    <!-- Right: Social Media -->
+    <div class="footer-right">
+      <a href="https://web.facebook.com/?_rdc=1&_rdr#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://x.com/i/flow/login" title="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/home?originalSubdomain=lk" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</footer>
+<script>
+
+// Updated QR code generation using QRCode.js
+const toggle = document.getElementById('nav-toggle');
+const nav = document.querySelector('nav');
+
+toggle.addEventListener('click', () => {
+  nav.classList.toggle('active');
+});
+</script>
+</body>
+</html>
